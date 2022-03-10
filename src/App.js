@@ -32,39 +32,23 @@ class App extends Component {
         {
           <Transition
             in={this.state.showBlock}
-            timeout={1000}
+            timeout={3000}
             mountOnEnter
             unmountOnExit
+            onEnter={() => console.log("enter")}
+            onEntering={() => console.log("entering")}
+            onEntered={() => console.log("entered")}
+            onExit={() => console.log("exit")}
+            onExiting={() => console.log("exiting")}
+            onExited={() => console.log("exited")}
           >
             {(state) => {
-              return (
-                <div
-                  style={{
-                    backgroundColor: "red",
-                    width: 100,
-                    height: 100,
-                    margin: "auto",
-                    transition: "opacity 1s ease-out",
-                    opacity: state === "exiting" ? 0 : 1,
-                  }}
-                ></div>
-              );
+              return <p>{state}</p>;
             }}
           </Transition>
         }
         <br></br>
-        {this.state.modalIsOpen ? (
-          <Transition
-            in={this.state.modalIsOpen}
-            timeout={3000}
-            mountOnEnter
-            unmountOnExit
-          >
-            {(state) => {
-              return <Modal show={state} closed={this.closeModal} />;
-            }}
-          </Transition>
-        ) : null}
+        <Modal show={this.state.modalIsOpen} closed={this.closeModal} />
         {this.state.modalIsOpen ? <Backdrop show /> : null}
         <button className="Button" onClick={this.showModal}>
           Open Modal

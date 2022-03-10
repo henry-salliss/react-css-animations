@@ -10,14 +10,27 @@
   top: 30%;
   left: 25%;
   width: 50%;
-  transition: all ease-in-out 300ms;
 }
 
 .ModalOpen {
-  animation: openModal 1000ms ease-in-out forwards;
+  animation: openModal 500ms ease-in-out forwards;
 }
 
 .ModalClosed {
+  animation: closeModal 1000ms ease-in-out forwards;
+}
+
+.fade-slide-enter {
+}
+
+.fade-slide-enter-active {
+  animation: openModal 500ms ease-in-out forwards;
+}
+
+.fade-slide-exit {
+}
+
+.fade-slide-exit-active {
   animation: closeModal 1000ms ease-in-out forwards;
 }
 
